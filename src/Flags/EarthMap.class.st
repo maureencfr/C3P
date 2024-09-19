@@ -21,7 +21,7 @@ EarthMap >> importCountriesFrom: aXmlFile [
     | xmlTree nodes |
     xmlTree := self xmlTreeFromFile: aXmlFile.
     nodes := xmlTree allNodes.
-    nodes do: [ :node | countries add: (self importCountryFromXMLNode: node) ].
+    nodes do: [ :node | node class = XMLElement ifTrue:[countries add: (self importCountryFromXMLNode: node)] ].
 
 	
 ]
