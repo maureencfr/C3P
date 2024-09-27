@@ -74,7 +74,6 @@ UUIDTest >> testReadFromWithIncorrectOutput [
     uuidStringInvalid := '12345678-9101-abcd-121314151617'.
     stream := uuidStringInvalid readStream.
     uuid := UUID new.
-    uuid readFrom: stream.
     
     self should: [ uuid readFrom: stream ] raise: Error-'separator expected'.
 
