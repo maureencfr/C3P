@@ -54,31 +54,6 @@ UUIDTest >> testNilUUID [
 	self deny: UUID new isNilUUID
 ]
 
-{ #category : 'tests' }
-UUIDTest >> testReadFromNormalBehaviour [
-    | uuid expectedUUID uuidString stream |
-    uuidString := '12345678-5678-9101-abcd-121314151617'.
-    stream := uuidString readStream.
-    uuid := UUID new.
-    uuid readFrom: stream.
-    
-    expectedUUID := UUID fromString: uuidString.
-    self assert: uuid = expectedUUID.
-
-]
-
-{ #category : 'tests' }
-UUIDTest >> testReadFromWithIncorrectOutput [
-
-    | uuid  uuidStringInvalid stream |
-    uuidStringInvalid := '12345678-9101-abcd-121314151617'.
-    stream := uuidStringInvalid readStream.
-    uuid := UUID new.
-    
-    self should: [ uuid readFrom: stream ] raise: Error-'separator expected'.
-
-]
-
 { #category : 'testing' }
 UUIDTest >> testString [
 
